@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Не направленный граф.
+ * @param <T> пользовательский тип вершин.
+ */
 public class UndirectedGraph<T> implements Graph<T> {
 
     /**
@@ -34,7 +38,7 @@ public class UndirectedGraph<T> implements Graph<T> {
 
     @Override
     public void addVertex(T vertex) {
-        vertexMap.put(idFunction.apply(vertex), new VertexImpl<>(idFunction.apply(vertex), vertex));
+        vertexMap.put(idFunction.apply(vertex), new SimpleVertex<>(idFunction.apply(vertex), vertex));
     }
 
     @Override
@@ -45,8 +49,8 @@ public class UndirectedGraph<T> implements Graph<T> {
         edgeMap.putIfAbsent(first, new ArrayList<>());
         edgeMap.putIfAbsent(second, new ArrayList<>());
 
-        edgeMap.get(first).add(new EdgeImpl(first, second));
-        edgeMap.get(second).add(new EdgeImpl(second, first));
+        edgeMap.get(first).add(new SimpleEdge(first, second));
+        edgeMap.get(second).add(new SimpleEdge(second, first));
     }
 
     @Override

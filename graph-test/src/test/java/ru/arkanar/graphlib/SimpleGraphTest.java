@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.arkanar.graphlib.impl.GraphBuilderImpl;
-import ru.arkanar.graphlib.impl.PathStrategyImpl;
+import ru.arkanar.graphlib.impl.WaveAlgorithm;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class SimpleGraphTest {
         GraphBuilder<TestObjectVertex> graphBuilder = new GraphBuilderImpl<>();
         Graph<TestObjectVertex> directedGraph = graphBuilder
                 .setGraphType(GraphType.DIRECTED)
-                .setFindPathStrategy(new PathStrategyImpl())
+                .setFindPathStrategy(new WaveAlgorithm())
                 .setIdFunction(TestObjectVertex::getName)
                 .build();
 
@@ -55,7 +55,7 @@ public class SimpleGraphTest {
         GraphBuilder<TestObjectVertex> graphBuilder = new GraphBuilderImpl<>();
         Graph<TestObjectVertex> unDirectedGraph = graphBuilder
                 .setGraphType(GraphType.UNDIRECTED)
-                .setFindPathStrategy(new PathStrategyImpl())
+                .setFindPathStrategy(new WaveAlgorithm())
                 .setIdFunction(TestObjectVertex::getName)
                 .build();
 

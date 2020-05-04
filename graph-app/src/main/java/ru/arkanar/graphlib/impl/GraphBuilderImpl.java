@@ -31,7 +31,7 @@ public class GraphBuilderImpl<T> implements GraphBuilder<T> {
     /**
      * Алгоритм по которому будет искаться кратчайший путь
      */
-    private PathStrategy pathStrategy = new PathStrategyImpl();
+    private PathStrategy pathStrategy = new WaveAlgorithm();
 
     /**
      * Конструктор.
